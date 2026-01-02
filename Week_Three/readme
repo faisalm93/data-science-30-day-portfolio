@@ -1,1 +1,16 @@
+# Day 15 – NLP Text Cleaning & Exploratory Analysis
 
+## Objective
+To prepare and understand textual data through systematic cleaning and NLP-focused exploratory analysis.
+
+## Key Activities
+- Text normalization and cleaning
+- Tokenization and vocabulary analysis
+- Text length and word count analysis
+- Class imbalance inspection
+
+## Outcome
+A clean and well-understood text corpus, ready for feature extraction and modeling.
+
+## Research Notes
+Text structure and vocabulary distribution strongly influence downstream model performance and evaluation strategy.
