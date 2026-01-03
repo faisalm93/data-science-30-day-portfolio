@@ -14,3 +14,56 @@ A clean and well-understood text corpus, ready for feature extraction and modeli
 
 ## Research Notes
 Text structure and vocabulary distribution strongly influence downstream model performance and evaluation strategy.
+
+
+# Customer Complaint Classification
+
+## Project Overview
+This project aims to classify customer complaints into predefined categories using Natural Language Processing (NLP) techniques and machine learning models. The goal is to automatically categorize customer feedback, enabling businesses to quickly address issues and improve customer satisfaction.
+
+## Dataset
+The dataset used is `Customer_complaints.csv`, which contains customer complaints and their corresponding categories. The dataset was split into training and testing sets to evaluate model performance.
+
+## Methodology
+
+### 1. Data Preprocessing
+*   **Feature and Label Definition:** Customer complaint texts (`complaint`) were used as features (X) and complaint categories (`category`) as labels (y).
+*   **Train-Test Split:** The dataset was split into 80% training and 20% testing sets, with `stratify=y` to ensure an even distribution of categories across both sets.
+*   **TF-IDF Vectorization:** Text data was transformed into numerical features using `TfidfVectorizer`. This process involved:
+    *   Removing English stop words.
+    *   Considering unigrams and bigrams (`ngram_range=(1, 2)`).
+    *   Filtering out terms that appear in too many (`max_df=0.9`) or too few (`min_df=2`) documents.
+
+### 2. Model Training
+Two baseline classification models were trained:
+*   **Logistic Regression:** A linear model widely used for binary and multi-class classification.
+*   **Multinomial Naive Bayes:** A probabilistic classifier particularly suited for text classification with discrete features.
+
+### 3. Model Evaluation
+The models were evaluated using the following metrics:
+*   **Accuracy:** The proportion of correctly classified instances.
+*   **Macro F1-score:** The harmonic mean of precision and recall, calculated independently for each class and then averaged, providing a balanced measure for multi-class problems.
+*   **Classification Report:** Detailed per-class precision, recall, and F1-score.
+*   **Confusion Matrix:** A visualization showing the number of correct and incorrect predictions for each class.
+
+## Results
+Both Logistic Regression and Multinomial Naive Bayes models achieved exceptional performance on the test set:
+
+*   **Logistic Regression:**
+    *   Accuracy: 1.0000
+    *   Macro F1-score: 1.0000
+
+*   **Multinomial Naive Bayes:**
+    *   Accuracy: 1.0000
+    *   Macro F1-score: 1.0000
+
+These perfect scores indicate that the models were highly effective at classifying customer complaints into their respective categories, likely due to the distinct nature of the complaint categories and the effectiveness of TF-IDF features for this specific dataset.
+
+## Feature Importance
+For the Logistic Regression model, the coefficients associated with each TF-IDF feature were analyzed to understand their importance in classifying complaints. Features with higher absolute coefficient values contribute more significantly to the model's predictions. A visualization was generated to display the top 15 most important features.
+
+## Conclusion and Future Work
+The perfect scores suggest that the classification task is well-defined and the models, coupled with TF-IDF features, are very robust for this dataset. For future work, it would be beneficial to:
+*   Test these models on a more diverse or challenging dataset to assess their generalizability.
+*   Explore other advanced NLP techniques or deep learning models for comparison, even if these models already achieve perfect scores.
+*   Investigate the interpretability of the models further, especially for real-world deployment.
